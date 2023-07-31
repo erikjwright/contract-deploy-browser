@@ -16,7 +16,9 @@
 		console.log("Abi: " + abi);
 		console.log("Bytecode: " + bytecode);
 
-		const provider = new ethers.BrowserProvider(window.ethereum);
+		const provider = window.ethereum
+			? new ethers.BrowserProvider(window.ethereum)
+			: new ethers.JsonRpcProvider("http://localhost:8545");
 
 		const runner = new ethers.ContractFactory(abi, bytecode, await provider.getSigner());
 
