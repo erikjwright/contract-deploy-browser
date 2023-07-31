@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { ethers } from "ethers";
 
+	import "../app.css";
+
 	async function deploy() {
 		const { compile } = await import("$lib/compile");
 
@@ -22,6 +24,7 @@
 	}
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<button on:click={deploy}>Deploy</button>
+<header class="px-8 py-4 shadow-lg"><h1 class="text-3xl font-bold">Contract Browser Deployment</h1></header>
+<main class="container mx-auto py-12">
+	<button on:click={deploy} class="btn btn-primary">Deploy</button>
+</main>
